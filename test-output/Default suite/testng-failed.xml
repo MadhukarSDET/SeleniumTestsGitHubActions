@@ -5,6 +5,8 @@
     <classes>
       <class name="tests.GoogleSearchTest">
         <methods>
+          <include name="setupBrowser"/>
+          <include name="closeBrowser"/>
           <include name="verifyGoogleTitle"/>
         </methods>
       </class> <!-- tests.GoogleSearchTest -->
