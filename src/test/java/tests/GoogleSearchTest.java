@@ -12,6 +12,6 @@ public class GoogleSearchTest extends BaseTest {
     public void verifyGoogleTitle() {
         String searchPageTitle = new SearchPage(driver).getTitle();
         System.out.println("Page Title is: " + searchPageTitle);
-        Assert.assertTrue(searchPageTitle.contains("I"));
+        Assert.assertTrue(searchPageTitle.contains("Google"));
     }
 }
