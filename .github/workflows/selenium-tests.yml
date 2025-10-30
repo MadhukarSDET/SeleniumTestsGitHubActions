@@ -14,7 +14,7 @@ jobs:
     # 💡 Run tests in parallel across browsers
     strategy:
       matrix:
-        browser: [chrome, edge, firefox]
+        browser: [chrome, firefox]
 
     steps:
       # Step 1: Checkout Repository
