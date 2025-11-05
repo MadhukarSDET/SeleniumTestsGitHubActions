@@ -34,7 +34,7 @@ jobs:
           google-chrome --version
 
       - name: Run Selenium Tests
-        run: mvn clean test
+        run: mvn clean test -Dbrowser=${{ matrix.browser }}
 
       - name: Upload Test Reports
         if: always()
