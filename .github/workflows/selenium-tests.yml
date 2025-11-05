@@ -11,14 +11,12 @@ jobs:
   selenium-tests:
     runs-on: ubuntu-latest
 
-<<<<<<< HEAD
-=======
+
     # 💡 Run tests in parallel across browsers
     strategy:
       matrix:
         browser: [chrome, firefox]
 
->>>>>>> c083d9ee6753922e4c8ea1b0b8988bb4f4e8c546
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -39,7 +37,7 @@ jobs:
           google-chrome --version
 
       - name: Run Selenium Tests
-        run: mvn clean test -B
+        run: mvn clean test
 
       - name: Upload Test Reports
         if: always()

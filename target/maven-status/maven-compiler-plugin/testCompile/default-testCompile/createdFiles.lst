@@ -1,7 +1,14 @@
-base\BaseTest.class
-utilities\ExcelReading.class
 pages\Page.class
 utilities\JavaScriptUtils.class
+tests\ContactUSPageTests2.class
+base\DriverManager.class
+base\Base.class
+pages\ContactUsPage.class
+tests\ContactUSPageTests.class
+base\BaseTest.class
+utilities\ExcelReading.class
+pages\ContactUsPage2.class
+base\DriverFactory.class
 retry\RetryListener.class
 pages\SearchPage.class
 retry\RetryAnalyzer.class
