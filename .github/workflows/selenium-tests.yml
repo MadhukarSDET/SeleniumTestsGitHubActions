@@ -10,13 +10,20 @@ on:
 jobs:
   selenium-tests:
     runs-on: ubuntu-latest
+<<<<<<< HEAD
 
 
+=======
+    
+>>>>>>> fb64d105dacc022be078beff690b29dd679a74a5
     # 💡 Run tests in parallel across browsers
     strategy:
       matrix:
         browser: [chrome, firefox]
+<<<<<<< HEAD
 
+=======
+>>>>>>> fb64d105dacc022be078beff690b29dd679a74a5
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
