@@ -7,29 +7,34 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseTest {
 
 	protected WebDriver driver;
+	String browser;
 
 	@BeforeMethod
-	public void setupBrowser() {
+	@Parameters("browser")
+	protected void setupBrowser(@Optional("chrome")String browser) {
 
-		String browser = System.getProperty("browser", "chrome");
+		// browser = System.getProperty("browser");
+
+		System.out.println("browser name:" + browser);
 
 		switch (browser.toLowerCase()) {
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
 			driver = new ChromeDriver();
 			break;
 		case "firefox":
-			WebDriverManager.firefoxdriver().setup();
 			driver = new FirefoxDriver();
 			break;
 		case "edge":
-			WebDriverManager.edgedriver().setup();
 			driver = new EdgeDriver();
 			break;
 		default:
@@ -41,13 +46,17 @@ public class BaseTest {
 			driver = new ChromeDriver(options);
 			break;
 		}
-		driver.get("https://automationexercise.com/");
-		driver.manage().window().maximize();
+
+		DriverManager.setDriver(driver);
+		DriverManager.getDriver().get("https://automationexercise.com/");
+		DriverManager.getDriver().manage().window().maximize();
 	}
 
 	@AfterMethod
-	public void closeBrowser() {
-		driver.close();
+	protected void closeBrowser() {
+		if (DriverManager.getDriver() != null) {
+			driver.close();
+		}
 	}
 
 }
